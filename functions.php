@@ -70,4 +70,10 @@ function chiara_the_post_thumbnail_title() {
   }
 }
 
+function chiara_split_name() {
+    foreach (preg_split("/\s+/", get_bloginfo( 'name' )) as $name_part) {
+        printf("<span>%s</span>", $name_part);
+    }
+}
+
 ?>

@@ -47,7 +47,7 @@
 <body <?php body_class(); ?>>
     <div class="container_12">
         <div id="header">
-            <h1><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+            <h1><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php chiara_split_name(); ?></a></h1>
         </div>
         <!-- /#header -->
         <div id="content">
