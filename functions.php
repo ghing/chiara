@@ -66,7 +66,7 @@ function chiara_the_post_thumbnail_title() {
   $thumbnail_image = get_posts(array('p' => $thumbnail_id, 'post_type' => 'attachment'));
 
   if ($thumbnail_image && isset($thumbnail_image[0])) {
-    echo '<span class="wp-post-image-title">'.$thumbnail_image[0]->post_title.'</span>';
+    echo $thumbnail_image[0]->post_title;
   }
 }
 
