@@ -1,12 +1,6 @@
 <?php
 /**
- * The main template file.
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ * Template page for a single project post.
  *
  * @package WordPress
  * @subpackage Chiara 
@@ -15,4 +9,19 @@
 
 get_header(); 
 ?>
+
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?> 
+<h2 class="entry-title"><?php the_title(); ?></h2>
+<?php if ( has_post_thumbnail() ): 
+  $original_image_url = wp_get_attachment_image_src(get_post_thumbnail_id(), 'original');  
+?>
+<div class="entry-main-image attachment-<?php echo get_post_thumbnail_id(); ?>">
+  <a href="<?php echo $original_image_url[0]; ?>" title="<?php chiara_the_post_thumbnail_title(); ?>"><?php the_post_thumbnail('object'); ?></a>
+  <div class="attachment-title"><?php chiara_the_post_thumbnail_title(); ?></div>
+  <div class="attachment-description"><?php chiara_the_post_thumbnail_description(); ?></div>
+</div>
+<?php endif; ?>
+<?php get_template_part( 'attachment_thumbnails' ); ?>
+<?php endwhile; endif; ?>
+
 <?php get_footer(); ?>
