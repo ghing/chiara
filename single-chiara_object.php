@@ -13,7 +13,7 @@ get_header();
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?> 
 <h2 class="entry-title"><?php the_title(); ?></h2>
 <?php get_template_part( 'featured_image' ); ?>
-<?php get_template_part( 'attachment_thumbnails' ); ?>
+<?php get_template_part( 'attachments_big' ); ?>
 <?php endwhile; endif; ?>
 
 <?php get_footer(); ?>

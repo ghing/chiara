@@ -56,12 +56,26 @@ body {
 }
 
 /* The large image for a project or object */
+
 #content .entry-main-image {
   margin-bottom: 20px;
 }
 
 #content .entry-main-image img {
   display: block;
+}
+
+/* Images displayed below the main image and text content */
+
+#content .attachment-big {
+  margin-bottom: 20px;
+}
+
+#content .attachment-title,
+#content .attachment-description {
+	/* Hide the titles and descriptions from the user, */
+	/* but they need to be in the DOM for colorbox. */
+	display: none;	
 }
 
 /* The footer */
