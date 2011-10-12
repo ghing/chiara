@@ -21,6 +21,7 @@ body {
 }
 
 #header h1 {
+  float: left;
   font-size: 1.5em;
   text-transform: uppercase;
   width: 200px;
@@ -40,11 +41,21 @@ body {
   color: #000;
 }
 
+#content {
+  float: left;
+}
+
 #content h2 {
   font-size: 1.5em;
   margin-bottom: 10px;
 }
 
+#content p {
+  margin-bottom: 1em;
+  text-align: justify;
+}
+
+/* The large image for a project or object */
 #content .entry-main-image {
   margin-bottom: 20px;
 }
@@ -52,6 +63,8 @@ body {
 #content .entry-main-image img {
   display: block;
 }
+
+/* The footer */
 
 #footer {
   height: 100px;

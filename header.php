@@ -46,8 +46,8 @@
 
 <body <?php body_class(); ?>>
     <div class="container_12">
-        <div id="header">
+        <div id="header" class="grid_3">
             <h1><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php chiara_split_name(); ?></a></h1>
         </div>
         <!-- /#header -->
-        <div id="content">
+        <div id="content" class="grid_9">
