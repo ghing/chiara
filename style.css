@@ -157,13 +157,15 @@ body {
 
 #content .attachment-title,
 #content .attachment-description {
-	/* Hide the titles and descriptions from the user, */
-	/* but they need to be in the DOM for colorbox. */
-	display: none;	
 }
 
 /* The footer */
 
 #footer {
   height: 100px;
+}
+
+/* General utility classes */
+.hidden {
+	display: none;
 }

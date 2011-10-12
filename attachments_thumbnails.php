@@ -14,8 +14,9 @@ if ($attachments) {
       printf("<a href=\"%s\" class=\"attachment-src-url\" title=\"%s\">%s</a>",
               $image_attributes[0], $attachment->post_title, 
               wp_get_attachment_image($attachment->ID, 'chiara-thumbnail-220'));
-      echo '<div class="attachment-title">' . $attachment->post_title . '</div>';
-      echo '<div class="attachment-description">' . $attachment->post_content . '</div>';
+      printf('<div class="attachment-title%s">%s</div>', !chiara_auto_display_attachment_info() ? " hidden" : "", $attachment->post_title);
+      printf('<div class="attachment-caption%s">%s</div>', !chiara_auto_display_attachment_info() ? " hidden" : "", $attachment->post_excerpt);      
+      printf('<div class="attachment-description%s">%s</div>', !chiara_auto_display_attachment_info() ? " hidden" : "", $attachment->post_content);
       echo("</div>");
     }
   }

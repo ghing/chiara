@@ -71,6 +71,17 @@ function chiara_the_post_thumbnail_title() {
   }
 }
 
+function chiara_the_post_thumbnail_caption() {
+  global $post;
+
+  $thumbnail_id    = get_post_thumbnail_id($post->ID);
+  $thumbnail_image = get_posts(array('p' => $thumbnail_id, 'post_type' => 'attachment'));
+
+  if ($thumbnail_image && isset($thumbnail_image[0])) {
+    echo $thumbnail_image[0]->post_excerpt;
+  }
+}
+
 function chiara_the_post_thumbnail_description() {
   global $post;
 
@@ -205,6 +216,10 @@ function chiara_custom_box($post) {
   
   $auto_display_attachments = get_post_meta($post->ID, 'chiara_auto_display_attachments', true);
   $auto_display_attachment_info = get_post_meta($post->ID, 'chiara_auto_display_attachment_info', true);
+  // DEBUG
+  //print_r($auto_display_attachments);
+  //print_r($auto_display_attachment_info);
+  // /DEBUG
   
   echo '<p>';
   printf('<input type="checkbox" id="chiara-auto-display-attachments" name="chiara-auto-display-attachments"%s/>',
@@ -261,13 +276,13 @@ function chiara_save_postdata( $post_id ) {
 }
 
 function chiara_auto_display_attachments() {
-	global $post;
+	global $post;	
   	return get_post_meta($post->ID, 'chiara_auto_display_attachments', true) != "";  
 }
 
 function chiara_auto_display_attachment_info() {
 	global $post;
-	return get_post_meta($post->ID, 'chiara_auto_display_attachment_info', true) != "";
+	return get_post_meta($post->ID, 'chiara_auto_display_attachment_info', true) != "";	
 }
 
 ?>
