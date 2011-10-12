@@ -48,6 +48,14 @@
     <div class="container_12">
         <div id="header" class="grid_3">
             <h1><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php chiara_split_name(); ?></a></h1>
+            <?php 
+            wp_nav_menu( array( 
+            	'theme_location' => 'header-menu-1',
+            	'menu' => chiara_primary_menu_id() ) );             
+            wp_nav_menu( array( 
+            	'theme_location' => 'header-menu-2',
+            	'menu' => chiara_secondary_menu_id() ) ); 
+            ?>
         </div>
         <!-- /#header -->
         <div id="content" class="grid_9">

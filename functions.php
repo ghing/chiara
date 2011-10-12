@@ -87,4 +87,65 @@ function chiara_split_name() {
     }
 }
 
+function chiara_register_menus() {
+  register_nav_menus(
+    array( 'header-menu-1' => __( 'Header Menu 1' ),
+           'header-menu-2' => __( 'Header Menu 2' ))
+  );
+}
+add_action( 'init', 'chiara_register_menus' );
+
+function chiara_initialize_default_menus() {
+	global $chiara_primary_menu_id;
+	global $chiara_secondary_menu_id;
+	
+	$name = 'Primary Navigation';
+	if (!$menu = get_term_by( 'name', $name, 'nav_menu' )) {
+		// Menu does not exist.  Create it.
+	  	$chiara_primary_menu_id = wp_create_nav_menu($name);
+	  	$menu = get_term_by( 'name', $name, 'nav_menu' );
+	  	wp_update_nav_menu_item($menu->term_id, 0, array(
+			'menu-item-title' =>  __('Projects'),
+	      	'menu-item-classes' => 'home',
+	      	'menu-item-url' => home_url( '/projects' ),
+	      	'menu-item-status' => 'publish'));
+	    wp_update_nav_menu_item($menu->term_id, 0, array(
+			'menu-item-title' =>  __('Objects'),
+	      	'menu-item-classes' => 'home',
+	      	'menu-item-url' => home_url( '/objects' ),
+	      	'menu-item-status' => 'publish'));	    	
+	}
+	else {
+		// Menu already exists, just get the id.
+		$chiara_primary_menu_id = $menu->term_id;
+	}	
+    
+    $name = 'Secondary Navigation';
+	if (!$menu = get_term_by( 'name', $name, 'nav_menu' )) {
+		// Menu does not exist.  Create it.
+	  	$chiara_secondary_menu_id = wp_create_nav_menu($name);
+	  	$menu = get_term_by( 'name', $name, 'nav_menu' );
+	  	wp_update_nav_menu_item($menu->term_id, 0, array(
+			'menu-item-title' =>  __('CV'),
+	      	'menu-item-classes' => 'home',
+	      	'menu-item-url' => home_url( '/cv' ),
+	      	'menu-item-status' => 'publish'));		
+	}
+	else {
+		// Menu already exists, just get the id.
+		$chiara_secondary_menu_id = $menu->term_id;
+	}		
+}
+add_action( 'init', 'chiara_initialize_default_menus' );
+
+function chiara_primary_menu_id() {
+		global $chiara_primary_menu_id;
+		return $chiara_primary_menu_id;
+}
+
+function chiara_secondary_menu_id() {
+		global $chiara_secondary_menu_id;
+		return $chiara_secondary_menu_id;
+}
+
 ?>
