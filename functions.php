@@ -1,8 +1,8 @@
 <?php
 
 add_theme_support('post-thumbnails', array('post', 'page', 'chiara_object', 'chiara_project'));
-add_image_size('object', 800, 800, false);
-add_image_size('object-thumbnail', 220, 220, false);
+add_image_size('chiara-thumbnail-220', 220, 220, false);
+add_image_size('chiara-700', 700, 700, false);
 
 add_action( 'init', 'chiara_create_post_types' );
 

@@ -13,7 +13,7 @@ if ($attachments) {
       printf("<div class=\"attachment-%d grid_3\">", $attachment->ID);
       printf("<a href=\"%s\" class=\"attachment-src-url\" title=\"%s\">%s</a>",
               $image_attributes[0], $attachment->post_title, 
-              wp_get_attachment_image($attachment->ID, 'object-thumbnail'));
+              wp_get_attachment_image($attachment->ID, 'chiara-thumbnail-220'));
       echo '<div class="attachment-title">' . $attachment->post_title . '</div>';
       echo '<div class="attachment-description">' . $attachment->post_content . '</div>';
       echo("</div>");
