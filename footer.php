@@ -1,6 +1,9 @@
       
       </div> 
       <!-- /#content -->
+      <div id="footer">
+      </div>
+      <!-- /#footer -->
     </div>
     <script type="text/javascript">
     jQuery(document).ready(function($) {
