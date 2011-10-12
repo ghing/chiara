@@ -6,8 +6,7 @@
       <!-- /#footer -->
     </div>
     <script type="text/javascript">
-    jQuery(document).ready(function($) {
-      console.log('got here');
+    jQuery(document).ready(function($) {      
       $('.entry-main-image a').colorbox({height: '100%', opacity: 1});
       $('a.attachment-src-url').colorbox({height: '100%', opacity: 1});
     });
