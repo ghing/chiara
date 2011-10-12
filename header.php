@@ -49,12 +49,23 @@
         <div id="header" class="grid_3">
             <h1><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php chiara_split_name(); ?></a></h1>
             <?php 
+            $primary_menu_id = '';
+            $secondary_menu_id = '';
+            
+            // If the user hasn't assigned a menu to the menu region,
+            // use the defaults.
+            if ( !has_nav_menu ('header-menu-1') ) {
+            	$primary_menu_id = chiara_primary_menu_id();
+            }
+            if ( !has_nav_menu ('header-menu-2') ) {
+            	$secondary_menu_id = chiara_secondary_menu_id();
+            }            
             wp_nav_menu( array( 
             	'theme_location' => 'header-menu-1',
-            	'menu' => chiara_primary_menu_id() ) );             
+            	'menu' => $primary_menu_id ) );             
             wp_nav_menu( array( 
             	'theme_location' => 'header-menu-2',
-            	'menu' => chiara_secondary_menu_id() ) ); 
+            	'menu' => $secondary_menu_id ) ); 
             ?>
         </div>
         <!-- /#header -->

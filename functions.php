@@ -126,6 +126,16 @@ function chiara_initialize_default_menus() {
 	  	$chiara_secondary_menu_id = wp_create_nav_menu($name);
 	  	$menu = get_term_by( 'name', $name, 'nav_menu' );
 	  	wp_update_nav_menu_item($menu->term_id, 0, array(
+			'menu-item-title' =>  __('Bio'),
+	      	'menu-item-classes' => 'home',
+	      	'menu-item-url' => home_url( '/bio' ),
+	      	'menu-item-status' => 'publish'));	
+		wp_update_nav_menu_item($menu->term_id, 0, array(
+			'menu-item-title' =>  __('Contact'),
+	      	'menu-item-classes' => 'home',
+	      	'menu-item-url' => home_url( '/contact' ),
+	      	'menu-item-status' => 'publish'));
+	  	wp_update_nav_menu_item($menu->term_id, 0, array(
 			'menu-item-title' =>  __('CV'),
 	      	'menu-item-classes' => 'home',
 	      	'menu-item-url' => home_url( '/cv' ),
