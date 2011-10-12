@@ -1,7 +1,7 @@
       
       </div> 
       <!-- /#content -->
-      <div id="footer">
+      <div id="footer" class="grid_12">
       </div>
       <!-- /#footer -->
     </div>
