@@ -158,4 +158,28 @@ function chiara_secondary_menu_id() {
 		return $chiara_secondary_menu_id;
 }
 
+function chiara_primary_menu_slug() {
+	global $chiara_primary_menu_id;
+	$menu = get_term_by( 'id', $chiara_primary_menu_id, 'nav_menu' );
+	return $menu->slug;
+}
+
+function chiara_secondary_menu_slug() {
+	global $chiara_secondary_menu_id;
+	$menu = get_term_by( 'id', $chiara_secondary_menu_id, 'nav_menu' );
+	return $menu->slug;
+}
+
+function chiara_special_nav_class($classes, $item){
+	global $post;	
+    if ($post->post_type == 'chiara_project' && $item->title == "Projects") { 
+     	$classes[] = "active-path";
+    }
+    else if ($post->post_type == 'chiara_object' && $item->title == "Objects") {
+    	$classes[] = "active-path";    	
+    }
+	return $classes;
+}
+add_filter('nav_menu_css_class' , 'chiara_special_nav_class' , 10 , 2);
+
 ?>

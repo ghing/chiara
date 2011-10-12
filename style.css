@@ -17,6 +17,7 @@ body {
 }
 
 #header {
+  margin-top: 10px;	
   margin-bottom: 10px;
 }
 
@@ -40,6 +41,74 @@ body {
   text-decoration: none;
   color: #000;
 }
+
+/* Navigation menus */
+
+#header #logo-menu-wrapper {
+	float: left;
+}
+
+#header ul.menu.horizontal li {
+	display: inline-block;
+}
+
+#header ul.menu li.menu-item {
+	list-style-type: none;
+}
+
+#header .menu-secondary-navigation-container {
+	clear: left;
+	margin: 20px 0 0 0;
+}
+
+#header .menu-secondary-navigation-container li {
+	text-transform: uppercase;
+	font-size: 1.2em;
+}
+
+#header .menu-secondary-navigation-container li a {
+	color: #000;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#header .menu-secondary-navigation-container li a:hover {
+	text-decoration: underline;
+}
+
+#header .menu-primary-navigation-container {
+	background-color: #000;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#header .menu-primary-navigation-container ul {
+	background-color: #fff;
+}
+
+#header .menu-primary-navigation-container li {		
+	padding: 0.2em 1em 0.2em 1em;
+	background-color: #000;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.2em;
+}
+
+#header .menu-primary-navigation-container li.active-path {
+	background-color: #2EFFD3;
+}
+
+#header .menu-primary-navigation-container li:hover {		
+	background-color: #3BBEFF;
+}
+
+#header .menu-primary-navigation-container li a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+/* Content area */
 
 #content {
   float: left;

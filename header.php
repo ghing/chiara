@@ -46,26 +46,33 @@
 
 <body <?php body_class(); ?>>
     <div class="container_12">
-        <div id="header" class="grid_3">
-            <h1><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php chiara_split_name(); ?></a></h1>
+        <div id="header">
+        	<div id="logo-menu-wrapper" class="grid_3">
+	            <h1><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php chiara_split_name(); ?></a></h1>
+	            <?php 
+	            $secondary_menu_id = '';	            	
+	
+	            if ( !has_nav_menu ('header-menu-2') ) {
+	            $secondary_menu_id = chiara_secondary_menu_id();
+	            }            
+	            wp_nav_menu( array( 
+	            	'theme_location' => 'header-menu-2',
+	            	'menu' => $secondary_menu_id,
+	                'container_class' => 'menu-secondary-navigation-container grid_3' ) );                        
+	            ?>            
+            </div>
             <?php 
             $primary_menu_id = '';
-            $secondary_menu_id = '';
-            
             // If the user hasn't assigned a menu to the menu region,
             // use the defaults.
             if ( !has_nav_menu ('header-menu-1') ) {
             	$primary_menu_id = chiara_primary_menu_id();
-            }
-            if ( !has_nav_menu ('header-menu-2') ) {
-            	$secondary_menu_id = chiara_secondary_menu_id();
             }            
             wp_nav_menu( array( 
             	'theme_location' => 'header-menu-1',
-            	'menu' => $primary_menu_id ) );             
-            wp_nav_menu( array( 
-            	'theme_location' => 'header-menu-2',
-            	'menu' => $secondary_menu_id ) ); 
+            	'menu' => $primary_menu_id,
+            	'container_class' => 'menu-primary-navigation-container grid_9',
+            	'menu_class' => 'menu horizontal'));
             ?>
         </div>
         <!-- /#header -->
