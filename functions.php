@@ -70,6 +70,17 @@ function chiara_the_post_thumbnail_title() {
   }
 }
 
+function chiara_the_post_thumbnail_description() {
+  global $post;
+
+  $thumbnail_id    = get_post_thumbnail_id($post->ID);
+  $thumbnail_image = get_posts(array('p' => $thumbnail_id, 'post_type' => 'attachment'));
+
+  if ($thumbnail_image && isset($thumbnail_image[0])) {
+    echo $thumbnail_image[0]->post_content;
+  }
+}
+
 function chiara_split_name() {
     foreach (preg_split("/\s+/", get_bloginfo( 'name' )) as $name_part) {
         printf("<span>%s</span>", $name_part);
