@@ -182,17 +182,28 @@ function chiara_secondary_menu_slug() {
 	return $menu->slug;
 }
 
+add_filter('nav_menu_css_class' , 'chiara_special_nav_class' , 10 , 2);
+/**
+ * Assign special CSS classes to the navigation menu items
+ *
+ * The menu acts as a sort of breadcrumb.  If page is an archive or single
+ * page for one of our custom types or if it is an archive or single page for
+ * a category, give the menu item a special class so it can be highlighted.
+ */
 function chiara_special_nav_class($classes, $item){
-	global $post;	
+    global $post;	
     if ($post->post_type == 'chiara_project' && $item->title == "Projects") { 
      	$classes[] = "active-path";
     }
     else if ($post->post_type == 'chiara_object' && $item->title == "Objects") {
     	$classes[] = "active-path";    	
     }
-	return $classes;
+    else if ($item->type == 'taxonomy' && 
+             (is_category($item->title) || in_category($item->title))) {
+    	$classes[] = "active-path";    	
+    }
+    return $classes;
 }
-add_filter('nav_menu_css_class' , 'chiara_special_nav_class' , 10 , 2);
 
 add_action( 'add_meta_boxes', 'chiara_add_custom_box' );
 function chiara_add_custom_box() {
