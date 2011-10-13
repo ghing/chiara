@@ -21,23 +21,16 @@ body {
   margin-bottom: 10px;
 }
 
-#header h1 {
+#header h1 a {
   float: left;
   font-size: 1.5em;
   text-transform: uppercase;
-  width: 200px;
+  width: 220px;
+  height: 61px;
   text-align: justify;
-}
-
-#header h1 span {
-  display: block;
-}
-
-#header h1 span:first-child {
-  font-size: 2em;
-}
-
-#header h1 a {
+  background: url(images/chiara_logo.png);
+  background-repeat: no-repeat;
+  text-indent: -9999px;
   text-decoration: none;
   color: #000;
 }
