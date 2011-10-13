@@ -285,4 +285,14 @@ function chiara_auto_display_attachment_info() {
 	return get_post_meta($post->ID, 'chiara_auto_display_attachment_info', true) != "";	
 }
 
+function chiara_attachment_caption($attachment_id) {
+  $attachment_post = get_post($attachment_id);
+  $caption = isset($attachment_post->post_title) ? $attachment_post->post_title . '. ' : '';
+  $caption .= isset($attachment_post->post_excerpt) ? $attachment_post->post_excerpt . ' ' : '';
+  $caption .= isset($attachment_post->post_content) ? $attachment_post->post_content : '';
+  printf('<p class="wp-caption-text%s">%s</p>',
+          chiara_auto_display_attachment_info() ? ' hidden' : '',
+          $caption);
+}
+
 ?>

@@ -159,6 +159,13 @@ body {
 #content .attachment-description {
 }
 
+/* Captions */
+#content .wp-caption-text {
+  margin-top: 10px;
+  font-size: 0.8em;
+  font-style: italic;
+}
+
 /* The footer */
 
 #footer {

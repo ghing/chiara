@@ -8,10 +8,10 @@
     <script type="text/javascript">
     jQuery(document).ready(function($) {      
       $('.entry-main-image a').colorbox({height: '100%', opacity: 1, title: function() {
-        return $(this).attr('title') + ' | ' + $(this).nextAll('.attachment-description').text(); 
+        return $(this).nextAll('.wp-caption-text').text(); 
       }});
       $('a.attachment-src-url').colorbox({height: '100%', opacity: 1, title: function() {
-        return $(this).attr('title') + ' | ' + $(this).nextAll('.attachment-description').text(); 
+        return $(this).nextAll('.wp-caption-text').text(); 
       }});
     });
     </script>
