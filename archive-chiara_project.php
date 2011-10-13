@@ -18,7 +18,9 @@ get_header();
 <h2><?php wp_title(''); ?></h2>
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-<h3 class="entry-title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h3>
-<?php the_excerpt(); ?>
+<div class="grid_3 small-post-container"> 
+	<h3 class="entry-title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h3>
+	<a href="<?php echo get_permalink(); ?>"><?php the_post_thumbnail('chiara-thumbnail-220-square'); ?></a>	
+</div>
 <?php endwhile; endif; ?>
 <?php get_footer(); ?>

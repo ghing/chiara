@@ -124,17 +124,30 @@ body {
   text-align: justify;
 }
 
-/* Post as shown in a list */
+/* Normal post as shown in a list */
+
+#content .entry-title {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+#content .entry-title a {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Project or Object post as shown in a list */
 #content .small-post-container {
 	margin-left: 0;	
 }
 
-#content .small-post-container h3 {
+#content .small-post-container .entry-title {
 	margin-bottom: 10px;
 	font-size: 1.5em;
 }
 
-#content .small-post-container h3 a {
+#content .small-post-container .entry-title a {
 	color: #000;
 	text-decoration: none;
 }
