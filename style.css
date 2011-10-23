@@ -21,24 +21,24 @@ body {
   margin-bottom: 10px;
 }
 
+#header h1 {
+  display: block;
+}
+
 #header h1 a {
   float: left;
-  font-size: 1.5em;
+  font-size: 3em;
   text-transform: uppercase;
-  width: 220px;
-  height: 61px;
   text-align: justify;
-  background: url(images/chiara_logo.png);
-  background-repeat: no-repeat;
-  text-indent: -9999px;
   text-decoration: none;
   color: #000;
 }
 
 /* Navigation menus */
 
-#header #logo-menu-wrapper {
+#header #left-sidebar-wrapper {
 	float: left;
+        min-height: 200px;
 }
 
 #header ul.menu.horizontal li {
@@ -71,7 +71,7 @@ body {
 
 #header .menu-primary-navigation-container {
 	background-color: #000;
-	margin-top: 20px;
+	margin-top: 10px;
 	margin-bottom: 20px;
 }
 

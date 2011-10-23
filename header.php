@@ -47,8 +47,7 @@
 <body <?php body_class(); ?>>
     <div class="container_12">
         <div id="header">
-        	<div id="logo-menu-wrapper" class="grid_3">
-	            <h1><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php chiara_split_name(); ?></a></h1>
+        	<div id="left-sidebar-wrapper" class="grid_3">
 	            <?php 
 	            $secondary_menu_id = '';	            	
 	
@@ -61,6 +60,7 @@
 	                'container_class' => 'menu-secondary-navigation-container grid_3' ) );                        
 	            ?>            
             </div>
+            <h1 class="grid_9"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
             <?php 
             $primary_menu_id = '';
             // If the user hasn't assigned a menu to the menu region,

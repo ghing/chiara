@@ -192,14 +192,18 @@ add_filter('nav_menu_css_class' , 'chiara_special_nav_class' , 10 , 2);
  */
 function chiara_special_nav_class($classes, $item){
     global $post;	
-    if ($post->post_type == 'chiara_project' && $item->title == "Projects") { 
+    if (($post->post_type == 'chiara_project' && $item->title == "Projects") ||
+($post->post_type == 'chiara_object' && $item->title == "Objects")) { 
+        // If the post is one of our special post types
      	$classes[] = "active-path";
     }
-    else if ($post->post_type == 'chiara_object' && $item->title == "Objects") {
+    else if ($post->post_type == 'page' && $item->title == $post->post_title) {
+        // If the post is a page and there's a menu item for it
     	$classes[] = "active-path";    	
     }
     else if ($item->type == 'taxonomy' && 
              (is_category($item->title) || in_category($item->title))) {
+        // If the post is in a category that has a menu item.
     	$classes[] = "active-path";    	
     }
     return $classes;
