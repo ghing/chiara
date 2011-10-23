@@ -8,6 +8,18 @@
  * @subpackage Chiara 
  * @since Chiara 1.0
  */
+
+// Set up some CSS classes depending on what kind of page this is.
+$header_class = "grid_9";
+$content_class = "grid_9";
+// QUESTION: Should the front page image fill the entire 12 columns?
+/*
+if (is_front_page()) {
+  $header_class = "grid_12";
+  $content_class = "grid_12";
+}
+*/
+ 
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -47,8 +59,8 @@
 <body <?php body_class(); ?>>
     <div class="container_12">
         <div id="header">
-        	<div id="left-sidebar-wrapper" class="grid_3">
-	            <?php 
+            <div id="left-sidebar-wrapper" class="grid_3">
+	           <?php 
 	            $secondary_menu_id = '';	            	
 	
 	            if ( !has_nav_menu ('header-menu-2') ) {
@@ -60,20 +72,23 @@
 	                'container_class' => 'menu-secondary-navigation-container grid_3' ) );                        
 	            ?>            
             </div>
-            <h1 class="grid_9"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+            <h1 class="<?php echo $header_class; ?>"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
             <?php 
-            $primary_menu_id = '';
-            // If the user hasn't assigned a menu to the menu region,
-            // use the defaults.
-            if ( !has_nav_menu ('header-menu-1') ) {
-            	$primary_menu_id = chiara_primary_menu_id();
-            }            
-            wp_nav_menu( array( 
-            	'theme_location' => 'header-menu-1',
-            	'menu' => $primary_menu_id,
-            	'container_class' => 'menu-primary-navigation-container grid_9',
-            	'menu_class' => 'menu horizontal'));
+            if (!is_front_page()) {
+                // Don't show the menu on the home page.
+                $primary_menu_id = '';
+                // If the user hasn't assigned a menu to the menu region,
+                // use the defaults.
+                if ( !has_nav_menu ('header-menu-1') ) {
+                    $primary_menu_id = chiara_primary_menu_id();
+                }            
+                wp_nav_menu( array( 
+                    'theme_location' => 'header-menu-1',
+                    'menu' => $primary_menu_id,
+                    'container_class' => 'menu-primary-navigation-container grid_9',
+                    'menu_class' => 'menu horizontal'));
+            }
             ?>
         </div>
         <!-- /#header -->
-        <div id="content" class="grid_9">
+        <div id="content" class="<?php echo $content_class; ?>">
