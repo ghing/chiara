@@ -17,7 +17,8 @@ function chiara_create_post_types() {
        'public' => true,
        'has_archive' => true,
        'rewrite' => array('slug' => 'projects'),
-       'supports' => array('title', 'editor', 'comments', 'trackbacks', 'revisions', 'author', 'thumbnail', 'custom-fields', 'page-attributes')
+       'supports' => array('title', 'editor', 'comments', 'trackbacks', 'revisions', 'author', 'thumbnail', 'custom-fields', 'page-attributes'),
+       'taxonomies' => array('category', 'post_tag')
        )
   );
   register_post_type( 'chiara_object',
@@ -29,7 +30,8 @@ function chiara_create_post_types() {
        'public' => true,
        'has_archive' => true,
        'rewrite' => array('slug' => 'objects'),
-       'supports' => array('title', 'editor', 'comments', 'trackbacks', 'revisions', 'author', 'thumbnail', 'custom-fields', 'page-attributes')
+       'supports' => array('title', 'editor', 'comments', 'trackbacks', 'revisions', 'author', 'thumbnail', 'custom-fields', 'page-attributes'),
+       'taxonomies' => array('category', 'post_tag')
        )
   );
 }
