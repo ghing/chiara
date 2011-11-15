@@ -20,7 +20,7 @@ get_header();
 <?php query_posts($query_string . "&order_by=date&order=dsc"); ?>
 <?php while (have_posts()) : the_post(); ?>
 <div class="grid_3 small-post-container"> 
-	<a href="<?php echo get_permalink(); ?>"><?php the_post_thumbnail('chiara-thumbnail-220-square'); ?></a>	
+	<a href="<?php echo get_permalink(); ?>"><?php the_post_thumbnail(); ?></a>	
 	<h3 class="entry-title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h3>
 </div>
 <?php endwhile; endif; ?>
