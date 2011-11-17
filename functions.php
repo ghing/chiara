@@ -313,4 +313,24 @@ function chiara_attachment_caption($attachment_id) {
           $caption);
 }
 
+function chiara_is_cv() {
+    global $post;
+
+    if (get_the_title($post->ID) == "CV") {
+        return true;
+    }
+
+    return false;
+}
+
+function chiara_body_class() {
+    if (chiara_is_cv()) {
+        $classes[] = 'cv';
+    }
+  
+    return $classes;
+}
+add_filter('body_class', 'chiara_body_class');
+
+
 ?>
