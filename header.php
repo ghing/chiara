@@ -59,18 +59,21 @@ if (is_front_page()) {
 <body <?php body_class(); ?>>
     <div class="container_12">
         <div id="header">
-            <div id="left-sidebar-wrapper" class="grid_3">
+            <div id="left-sidebar-wrapper" class="grid_2">
 	           <?php 
-	            $secondary_menu_id = '';	            	
+                   // This may be an about section some day. 
+                   /*
+	           $secondary_menu_id = '';	            	
 	
-	            if ( !has_nav_menu ('header-menu-2') ) {
-	            $secondary_menu_id = chiara_secondary_menu_id();
-	            }            
-	            wp_nav_menu( array( 
+	           if ( !has_nav_menu ('header-menu-2') ) {
+	               $secondary_menu_id = chiara_secondary_menu_id();
+	           }            
+	           wp_nav_menu( array( 
 	            	'theme_location' => 'header-menu-2',
 	            	'menu' => $secondary_menu_id,
-	                'container_class' => 'menu-secondary-navigation-container grid_3' ) );                        
-	            ?>            
+	                'container_class' => 'menu-secondary-navigation-container grid_3' ) );
+                    */
+	           ?>            
             </div>
             <?php if (!is_front_page()): ?>
             <h1 class="<?php echo $header_class; ?>"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
