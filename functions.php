@@ -61,6 +61,9 @@ function chiara_add_stylesheets() {
   printf("%s\n", chiara_stylesheet_url('css/reset.css'));
   printf("%s\n", chiara_stylesheet_url('css/960.css'));
   printf("%s\n", chiara_stylesheet_url('css/colorbox.css'));
+  if (chiara_is_cv()) {
+      printf("%s\n", chiara_stylesheet_url('css/cv.css'));
+  }
 }
 
 function chiara_the_post_thumbnail_title() {
