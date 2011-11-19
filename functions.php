@@ -326,7 +326,7 @@ function chiara_is_cv() {
     return false;
 }
 
-function chiara_body_class() {
+function chiara_body_class($classes) {
     if (chiara_is_cv()) {
         $classes[] = 'cv';
     }
