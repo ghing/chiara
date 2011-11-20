@@ -12,9 +12,17 @@
 // Set up some CSS classes depending on what kind of page this is.
 $header_class = "grid_9";
 $content_class = "grid_9";
+// QUESTION: Should the front page image fill the entire 12 columns?
+/*
+if (is_front_page()) {
+  $header_class = "grid_12";
+  $content_class = "grid_12";
+}
+*/
  
 ?>
 <!DOCTYPE html>
+<!-- Front page! -->
 <html <?php language_attributes(); ?>>
   <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
@@ -62,20 +70,6 @@ $content_class = "grid_9";
                     */
 	           ?>            
             </div>
-            <h1 class="<?php echo $header_class; ?>"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-            <?php 
-            $primary_menu_id = '';
-            // If the user hasn't assigned a menu to the menu region,
-            // use the defaults.
-            if ( !has_nav_menu ('header-menu-1') ) {
-                $primary_menu_id = chiara_primary_menu_id();
-            }            
-            wp_nav_menu( array( 
-                'theme_location' => 'header-menu-1',
-                'menu' => $primary_menu_id,
-                'container_class' => 'menu-primary-navigation-container grid_9',
-                'menu_class' => 'menu horizontal'));
-            ?>
         </div>
         <!-- /#header -->
         <div id="content" class="<?php echo $content_class; ?>">

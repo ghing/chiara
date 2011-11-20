@@ -9,7 +9,7 @@
  * @since Chiara 1.0
  */
 
-get_header(); 
+get_header('front-page'); 
 ?>
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?> 
