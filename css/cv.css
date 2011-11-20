@@ -1,1 +1,70 @@
 /* Styles for the CV */
+
+/* Remove margins */
+.cv li p {
+   margin-bottom: 0 !important;
+   line-height: 1.2em;
+}
+
+.cv .education,
+.cv .exhibitions,
+.cv .research-grants,
+.cv .honors,
+.cv .presentations,
+.cv .publications,
+.cv .teaching-experience,
+.cv .additional-experience {
+   position: relative;
+   list-style-type: none; 
+   left: 40px; /* push 1 */ 
+   top: 10px;
+   margin-bottom: 20px;
+
+}
+
+.cv .education>li,
+.cv .exhibitions>li,
+.cv .research-grants>li, 
+.cv .honors>li,
+.cv .presentations>li,
+.cv .publications>li,
+.cv .teaching-experience>li,
+.cv .additional-experience>li {
+    margin-bottom: 10px;
+}
+
+.cv .year {
+   float: left;
+   width: 40px;
+}
+
+.cv .institution,
+.cv .additional-experience .employer {
+   text-decoration: underline;
+ }
+
+.cv .degree,
+.cv .exhibitions .name,
+.cv .research-grants .name,
+.cv .publications .title {
+    font-style: italic;
+}
+
+.cv .details,
+.cv .honors .description {
+   padding-left: 80px;
+}
+
+.cv .education ul {
+    list-style-type: none;
+}
+
+.cv .teaching-experience ul,
+.cv .additional-experience ul {
+    padding-left: 40px;
+}
+
+.cv .teaching-experience .title,
+.cv .additional-experience .title {
+    font-weight: bold;
+}

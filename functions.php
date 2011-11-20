@@ -196,14 +196,18 @@ add_filter('nav_menu_css_class' , 'chiara_special_nav_class' , 10 , 2);
  * page for one of our custom types or if it is an archive or single page for
  * a category, give the menu item a special class so it can be highlighted.
  */
-function chiara_special_nav_class($classes, $item){
+function chiara_special_nav_class($classes, $item) {
     global $post;	
-    if (($post->post_type == 'chiara_project' && $item->title == "Projects") ||
-($post->post_type == 'chiara_object' && $item->title == "Objects")) { 
+    $post_type = $post->post_type;
+    if ($post_type == 'attachment') {
+        $post_type = get_post($post->post_parent)->post_type;
+    }
+    if (($post_type == 'chiara_project' && $item->title == "Projects") ||
+($post_type == 'chiara_object' && $item->title == "Objects")) { 
         // If the post is one of our special post types
      	$classes[] = "active-path";
     }
-    else if ($post->post_type == 'page' && $item->title == $post->post_title) {
+    else if ($post_type == 'page' && $item->title == $post->post_title) {
         // If the post is a page and there's a menu item for it
     	$classes[] = "active-path";    	
     }
@@ -334,6 +338,8 @@ function chiara_body_class($classes) {
     return $classes;
 }
 add_filter('body_class', 'chiara_body_class');
+
+add_editor_style('css/cv.css');
 
 
 ?>
