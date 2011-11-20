@@ -40,29 +40,11 @@ function chiara_create_post_types() {
   );
 }
 
-function chiara_register_scripts() {
-  if ( !is_admin() ) {
-    // register your script location, dependencies and version
-    /*
-     * Example:
-     * wp_register_script('colorbox',
-     * get_bloginfo('template_directory') . '/js/jquery.colorbox-min.js',
-     * array('jquery'),
-     * '1.3.17' );
-     */
-  }
-}
-
-function chiara_enqueue_scripts() {
-	// Example:
-	//wp_enqueue_script('colorbox');
-}
-
-add_action('wp_head', 'chiara_add_stylesheets');
-
 function chiara_stylesheet_url($stylesheet) {
   return sprintf("<link rel=\"stylesheet\" type=\"text/css\" media=\"all\" href=\"%s/%s\" />", get_bloginfo('template_url'), $stylesheet);
 }
+
+add_action('wp_head', 'chiara_add_stylesheets');
 
 function chiara_add_stylesheets() {
   printf("%s\n", chiara_stylesheet_url('css/reset.css'));
