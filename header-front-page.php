@@ -24,7 +24,11 @@
     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
     <?php
-          wp_enqueue_script('jquery');	
+          //wp_enqueue_script('jquery');	
+	  wp_register_script('jquery-chiara',
+	  	get_template_directory_uri() . '/js/jquery.chiara.js',
+		array('jquery'));
+	  wp_enqueue_script('jquery-chiara');
 
           /* Always have wp_head() just before the closing </head>
            * tag of your theme, or you will break many plugins, which
