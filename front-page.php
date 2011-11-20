@@ -13,7 +13,12 @@ get_header('front-page');
 ?>
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?> 
-<?php get_template_part( 'featured_image' ); ?>
-<?php endwhile; endif; ?>
+<?php if ( has_post_thumbnail() ): 
+$original_image_url = wp_get_attachment_image_src(get_post_thumbnail_id(), 'original');  
+$image_link = '/projects/';
+$css_classes = '';
+?>
+<a href="<?php echo $image_link; ?>" title="Projects" class="<?php echo $css_classes; ?>"><?php the_post_thumbnail('original'); ?></a>
+<?php endif; endwhile; endif; ?>
 
 <?php get_footer('front-page'); ?>

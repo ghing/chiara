@@ -186,3 +186,10 @@ body {
 .hidden {
 	display: none;
 }
+
+/* Front page specific styles */
+.home #content {
+	margin-top: 0;
+	position: fixed;
+	width: 100%;
+}
