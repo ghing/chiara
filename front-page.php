@@ -16,4 +16,4 @@ get_header('front-page');
 <?php get_template_part( 'featured_image' ); ?>
 <?php endwhile; endif; ?>
 
-<?php get_footer(); ?>
+<?php get_footer('front-page'); ?>
