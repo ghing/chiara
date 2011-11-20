@@ -34,13 +34,6 @@ if (is_front_page()) {
     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
     <?php
-          wp_enqueue_script('colorbox',
-            get_bloginfo('template_directory') . '/js/jquery.colorbox-min.js',
-            array('jquery'),
-            '1.3.17' );
-          wp_enqueue_script('typeface',
-            get_bloginfo('template_directory') . '/js/typeface.js');
-            
           /* We add some JavaScript to pages with the comment form
            * to support sites with threaded comments (when in use).
            */

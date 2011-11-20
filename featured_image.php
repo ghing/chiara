@@ -6,7 +6,6 @@
   else {
     $original_image_url = wp_get_attachment_image_src(get_post_thumbnail_id(), 'original');  
     $image_link = $original_image_url[0];
-    $css_classes = 'colorbox';
   }
 ?>
 <div class="entry-main-image attachment-<?php echo get_post_thumbnail_id(); ?>">

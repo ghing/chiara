@@ -43,15 +43,19 @@ function chiara_create_post_types() {
 function chiara_register_scripts() {
   if ( !is_admin() ) {
     // register your script location, dependencies and version
-    wp_register_script('colorbox',
-      get_bloginfo('template_directory') . '/js/jquery.colorbox-min.js',
-      array('jquery'),
-      '1.3.17' );
+    /*
+     * Example:
+     * wp_register_script('colorbox',
+     * get_bloginfo('template_directory') . '/js/jquery.colorbox-min.js',
+     * array('jquery'),
+     * '1.3.17' );
+     */
   }
 }
 
 function chiara_enqueue_scripts() {
-  wp_enqueue_script('colorbox');
+	// Example:
+	//wp_enqueue_script('colorbox');
 }
 
 add_action('wp_head', 'chiara_add_stylesheets');
@@ -63,7 +67,6 @@ function chiara_stylesheet_url($stylesheet) {
 function chiara_add_stylesheets() {
   printf("%s\n", chiara_stylesheet_url('css/reset.css'));
   printf("%s\n", chiara_stylesheet_url('css/960.css'));
-  printf("%s\n", chiara_stylesheet_url('css/colorbox.css'));
   if (chiara_is_cv()) {
       printf("%s\n", chiara_stylesheet_url('css/cv.css'));
   }
