@@ -4,6 +4,9 @@
 	<script type="text/javascript">
 	jQuery(document).ready(function($) {      
 	    jQuery('#content img').chiara('setFrontPageImageDimensions');
+	    jQuery(window).resize(function() {
+	        jQuery('#content img').chiara('setFrontPageImageDimensions');
+	    });
 	});
 	</script>
 	<?php
