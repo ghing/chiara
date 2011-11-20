@@ -3,3 +3,6 @@
 .project
 .settings/
 
+# Ignore vim swap files
+*.swp
+
