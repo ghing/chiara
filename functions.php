@@ -1,5 +1,8 @@
 <?php
 
+// The number of posts in each row of the project archive page.
+define("POSTS_IN_ARCHIVE_ROW", 3);
+
 add_theme_support('post-thumbnails', array('post', 'page', 'chiara_object', 'chiara_project'));
 add_image_size('chiara-thumbnail-220', 220, 220, false);
 add_image_size('chiara-thumbnail-220-square', 220, 220, true);

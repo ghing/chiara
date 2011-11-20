@@ -17,11 +17,23 @@ get_header();
 ?>
 
 <?php if (have_posts()) : ?>
-<?php query_posts($query_string . "&order_by=date&order=dsc"); ?>
+<?php 
+query_posts($query_string . "&order_by=date&order=dsc"); 
+$num_posts = 0;
+?>
 <?php while (have_posts()) : the_post(); ?>
-<div class="grid_3 small-post-container"> 
-	<a href="<?php echo get_permalink(); ?>"><?php the_post_thumbnail(); ?></a>	
-	<h3 class="entry-title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h3>
+<?php if ($num_posts % POSTS_IN_ARCHIVE_ROW == 0): ?>
+<div class="row grid_9">
+<?php endif; ?>
+	<div class="grid_3 small-post-container"> 
+		<a href="<?php echo get_permalink(); ?>"><?php the_post_thumbnail(); ?></a>	
+		<h3 class="entry-title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h3>
+	</div>
+	<!-- /.small-post-container -->
+<?php if ($num_posts % POSTS_IN_ARCHIVE_ROW == POSTS_IN_ARCHIVE_ROW - 1): ?>
 </div>
+<!-- /.row -->
+<?php endif; ?>
+<?php $num_posts++; ?>
 <?php endwhile; endif; ?>
 <?php get_footer(); ?>
