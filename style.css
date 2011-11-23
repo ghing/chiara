@@ -135,6 +135,10 @@ body {
 }
 
 /* Project or Object post as shown in a list */
+#content .row {
+    padding-bottom: 10px;
+}
+
 #content .small-post-container {
 	margin-left: 0;	
 }
